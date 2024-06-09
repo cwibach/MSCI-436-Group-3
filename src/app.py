@@ -4,10 +4,6 @@ import pandas as pd
 
 st.title("MSCI 436 - Project")
 
-st.header("Our Data")
-df = pd.read_csv("https://raw.githubusercontent.com/cwibach/MSCI-436-Group-3/main/data/Trips_data.csv?token=GHSAT0AAAAAACO4Q3VSJQNCAN6VK2CDJK5MZTF6LQA")
-st.dataframe(df)
-
 st.header("UI Examples")
 st.subheader("Example: Multiselect Input")
 options = st.multiselect(
