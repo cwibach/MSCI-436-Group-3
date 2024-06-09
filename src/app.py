@@ -5,7 +5,7 @@ import pandas as pd
 st.title("MSCI 436 - Project")
 
 st.header("Our Data")
-df = pd.read_csv("Trips_data.csv")
+df = pd.read_csv("../data/Trips_data.csv")
 st.dataframe(df)
 
 st.header("UI Examples")
