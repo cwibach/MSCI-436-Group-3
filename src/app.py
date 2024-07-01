@@ -2,49 +2,52 @@ import streamlit as st
 import pandas as pd 
 
 
-st.title("MSCI 436 - Project")
+st.title("MSCI 436 - Group 3")
 
-st.header("UI Examples")
-st.subheader("Example: Multiselect Input")
-options = st.multiselect(
-    "What are your favorite colors",
-    ["Green", "Yellow", "Red", "Blue"],
-    ["Yellow", "Red"])
-
-st.write("You selected:", options)
-
-st.subheader("Example: Select Input")
-options = st.selectbox(
-    "What are your favorite colors",
-    ["Green", "Yellow", "Red", "Blue"])
-
-st.write("You selected:", options)
-
-st.subheader("Example: Radio Input")
-genre = st.radio(
-    "What's your favorite movie genre?",
-    [":rainbow[Comedy]", "***Drama***", "Documentary :movie_camera:"],
-    index=None,
-)
-
-st.write("You selected:", genre)
-
-st.subheader("Example: Number Input")
-number = st.number_input(f'Insert a number (min: {0}, max: {100})', min_value=int(0), max_value=int(100), step=1)
-st.write("The current number is ", number)
+st.header("Features")
 
 
-st.subheader("Example: Column Layout")
-col1, col2, col3 = st.columns(3)
+row1col1, row1col2, row1col3 = st.columns(3)
 
-with col1:
-   st.header("A cat")
-   st.image("https://static.streamlit.io/examples/cat.jpg")
+with row1col1:
+   quarter_of_the_year = st.selectbox("Quarter of the Year", ("Q1", "Q2", "Q3", "Q4"), index=None, placeholder="")
 
-with col2:
-   st.header("A dog")
-   st.image("https://static.streamlit.io/examples/dog.jpg")
+with row1col2:
+   origin_province = st.selectbox("Origin Province", ("Q1", "Q2", "Q3", "Q4"), index=None, placeholder="")
 
-with col3:
-   st.header("An owl")
-   st.image("https://static.streamlit.io/examples/owl.jpg")
+with row1col3:
+   destination_province = st.selectbox("Destination Province", ("Q1", "Q2", "Q3", "Q4"), index=None, placeholder="")
+
+
+row2col1, row2col2, row2col3 = st.columns(3)
+
+with row2col1:
+   duration_of_the_trip = st.number_input(f'Duration of the Trip (days)', min_value=int(0), max_value=int(334), step=1, value=None)
+
+with row2col2:
+   main_reason_of_the_trip = st.selectbox("Main Reason of the Trip", ("Q1", "Q2", "Q3", "Q4"), index=None, placeholder="")
+
+with row2col3:
+   main_mode_of_tranportation = st.selectbox("Main Mode of Transportation", ("Q1", "Q2", "Q3", "Q4"), index=None, placeholder="")
+
+
+row3col1, row3col2 = st.columns(2)
+
+with row3col1:
+   number_of_adults = st.slider("Number of Additional Adults", 0, 5, 1)
+
+with row3col2:
+   number_of_children = st.slider("Number of Children", 0, 4, 1)
+
+st.write("Activities")
+row4col1, row4col2 = st.columns(2)
+
+with row4col1:
+   activity1 = st.checkbox("Activity 1")
+   activity2 = st.checkbox("Activity 2")
+   activity3 = st.checkbox("Activity 3")
+
+with row4col2:
+   activity4 = st.checkbox("Activity 4")
+   activity5 = st.checkbox("Activity 5")
+   activity6 = st.checkbox("Activity 6")
