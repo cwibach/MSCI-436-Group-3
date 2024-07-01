@@ -39,7 +39,7 @@ with row3col1:
 with row3col2:
    number_of_children = st.slider("Number of Children", 0, 4, 1)
 
-st.write("Activites")
+st.write("Activities")
 row4col1, row4col2 = st.columns(2)
 
 with row4col1:
