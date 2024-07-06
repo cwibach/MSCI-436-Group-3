@@ -39,15 +39,5 @@ with row3col1:
 with row3col2:
    number_of_children = st.slider("Number of Children", 0, 4, 1)
 
-st.write("Activities")
-row4col1, row4col2 = st.columns(2)
-
-with row4col1:
-   activity1 = st.checkbox("Activity 1")
-   activity2 = st.checkbox("Activity 2")
-   activity3 = st.checkbox("Activity 3")
-
-with row4col2:
-   activity4 = st.checkbox("Activity 4")
-   activity5 = st.checkbox("Activity 5")
-   activity6 = st.checkbox("Activity 6")
+activities_options = ['Visit Friends & Family', 'Shopping', 'Sightseeing', 'Museum/Art Gallery', 'Historic site', 'Zoo/Aquarium', 'Sprts Event as Spectator', 'Festival or Fair', 'Performance such as Play or Concert', 'Casino', 'Theme/Amusement Park', 'Aboriginal Event', 'Movies', 'Restaurant/Bar/Club', 'Wildife Viewing/Bird Watching', 'National/Provincial/Nature Park', 'Medical/Health Treatment', 'Business Meeting/Conference/Seminar', 'All-Terrain Vehicle', 'Boating', 'Canoeing/Kayaking', 'Camping', 'Hiking/Backpacking', 'Fishing', 'Beach', 'Hunting', 'Golfing', 'Cycling', 'Snowmobiling', 'Downhill Skiing/Snowboarding', 'Cross-country Skiing/Snowshoeing', 'Play Sports', 'Other Activity', 'No Activities']
+activities = st.multiselect("Activities", activities_options, [])
