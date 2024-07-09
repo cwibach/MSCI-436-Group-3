@@ -1,11 +1,13 @@
 import streamlit as st
-import pandas as pd 
-
+import sklearn
+import pickle
 
 st.title("MSCI 436 - Group 3")
 
 st.header("Features")
 
+with open('../ML Models/linear_regression_model.pkl', 'rb') as file:
+    model = pickle.load(file)
 
 row1col1, row1col2, row1col3 = st.columns(3)
 
@@ -41,3 +43,6 @@ with row3col2:
 
 activities_options = ['Visit Friends & Family', 'Shopping', 'Sightseeing', 'Museum/Art Gallery', 'Historic site', 'Zoo/Aquarium', 'Sprts Event as Spectator', 'Festival or Fair', 'Performance such as Play or Concert', 'Casino', 'Theme/Amusement Park', 'Aboriginal Event', 'Movies', 'Restaurant/Bar/Club', 'Wildife Viewing/Bird Watching', 'National/Provincial/Nature Park', 'Medical/Health Treatment', 'Business Meeting/Conference/Seminar', 'All-Terrain Vehicle', 'Boating', 'Canoeing/Kayaking', 'Camping', 'Hiking/Backpacking', 'Fishing', 'Beach', 'Hunting', 'Golfing', 'Cycling', 'Snowmobiling', 'Downhill Skiing/Snowboarding', 'Cross-country Skiing/Snowshoeing', 'Play Sports', 'Other Activity', 'No Activities']
 activities = st.multiselect("Activities", activities_options, [])
+
+
+st.header(model.predict([[], []]))
