@@ -4,19 +4,19 @@ import pandas as pd
 import pickle
 
 # Import Models
-with open('model.pkl', 'rb') as file:
+with open('../ML Models/model.pkl', 'rb') as file:
     model = pickle.load(file)
-with open('modelt.pkl', 'rb') as file:
+with open('../ML Models/modelt.pkl', 'rb') as file:
     modelt = pickle.load(file)
-with open('modelfb.pkl', 'rb') as file:
+with open('../ML Models/modelfb.pkl', 'rb') as file:
     modelfb = pickle.load(file)
-with open('modelat.pkl', 'rb') as file:
+with open('../ML Models/modelat.pkl', 'rb') as file:
     modelat = pickle.load(file)
-with open('models.pkl', 'rb') as file:
+with open('../ML Models/models.pkl', 'rb') as file:
     models = pickle.load(file)
-with open('modelacc.pkl', 'rb') as file:
+with open('../ML Models/modelacc.pkl', 'rb') as file:
     modelacc = pickle.load(file)
-   
+
 st.title("Data Powered Vacation Planning")
 st.subheader("MSCI 436 - Group 3")
 
