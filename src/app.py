@@ -3,14 +3,24 @@ import sklearn
 import pandas as pd
 import pickle
 
+# Import Models
+with open('../ML Models/model.pkl', 'rb') as file:
+    model = pickle.load(file)
+with open('../ML Models/modelt.pkl', 'rb') as file:
+    modelt = pickle.load(file)
+with open('../ML Models/modelfb.pkl', 'rb') as file:
+    modelfb = pickle.load(file)
+with open('../ML Models/modelat.pkl', 'rb') as file:
+    modelat = pickle.load(file)
+with open('../ML Models/models.pkl', 'rb') as file:
+    models = pickle.load(file)
+with open('../ML Models/modelacc.pkl', 'rb') as file:
+    modelacc = pickle.load(file)
+
 st.title("Data Powered Vacation Planning")
 st.subheader("MSCI 436 - Group 3")
 
 st.markdown("Planning your dream vacation just got easier! This tool provides you with an estimated cost for your trip based on the features you input. Enter details about your destination, number of people, time of year, and planned activities, and let our tool do the rest. Get a quick and accurate estimate to help you budget and plan your perfect getaway. Start planning with confidence today!")
-
-with open('../ML Models/linear_regression_model.pkl', 'rb') as file:
-    model = pickle.load(file)
-
 
 st.subheader("Inputs")
 
@@ -102,5 +112,16 @@ if submit:
 
    input_df = input_df[feature_names]
    
-   prediction = model.predict(input_df)
-   st.header(f'Estimated Total Cost: ${prediction[0][0]:.2f}')
+   total_cost = model.predict(input_df)
+   transport_cost = modelt.predict(input_df)
+   foodbev_cost = modelfb.predict(input_df)
+   activities_cost = modelat.predict(input_df)
+   shopping_cost = models.predict(input_df)
+   accomodation_cost = modelacc.predict(input_df)
+
+   st.markdown(f'## Estimated Total Cost: ${max(total_cost, 0):.2f}')
+   st.markdown(f'### Estimated Transport Cost: ${max(transport_cost, 0):.2f}')
+   st.markdown(f'### Estimated Food & Beverage Cost: ${max(foodbev_cost, 0):.2f}')
+   st.markdown(f'### Estimated Activities Cost: ${max(activities_cost, 0):.2f}')
+   st.markdown(f'### Estimated Shopping Cost: ${max(shopping_cost, 0):.2f}')
+   st.markdown(f'### Estimated Accomodation Cost: ${max(accomodation_cost, 0):.2f}')
