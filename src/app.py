@@ -112,12 +112,12 @@ if submit:
 
    input_df = input_df[feature_names]
    
-   total_cost = model.predict(input_df)
-   transport_cost = modelt.predict(input_df)
-   foodbev_cost = modelfb.predict(input_df)
-   activities_cost = modelat.predict(input_df)
-   shopping_cost = models.predict(input_df)
-   accomodation_cost = modelacc.predict(input_df)
+   total_cost = model.predict(input_df)[0][0]
+   transport_cost = modelt.predict(input_df)[0][0]
+   foodbev_cost = modelfb.predict(input_df)[0][0]
+   activities_cost = modelat.predict(input_df)[0][0]
+   shopping_cost = models.predict(input_df)[0][0]
+   accomodation_cost = modelacc.predict(input_df)[0][0]
 
    st.markdown(f'## Estimated Total Cost: ${max(total_cost, 0):.2f}')
    st.markdown(f'### Estimated Transport Cost: ${max(transport_cost, 0):.2f}')
